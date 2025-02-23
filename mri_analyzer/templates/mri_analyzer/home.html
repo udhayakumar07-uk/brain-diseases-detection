@@ -1,0 +1,31 @@
+{% extends 'mri_analyzer/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to NeuroInsight</h1>
+    <p>Revolutionizing Brain MRI Analysis with Advanced AI Technology</p>
+    <a href="{% url 'upload' %}" class="btn-upload">
+        <i class="fas fa-upload"></i> Upload MRI
+    </a>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <i class="fas fa-brain"></i>
+        <h3>Alzheimer's Detection</h3>
+        <p>Advanced neural networks trained to detect early signs of Alzheimer's disease.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-search"></i>
+        <h3>Tumor Analysis</h3>
+        <p>Precise tumor detection and classification using state-of-the-art AI models.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Stroke Assessment</h3>
+        <p>Rapid identification of stroke indicators for immediate intervention.</p>
+    </div>
+</div>
+{% endblock %}

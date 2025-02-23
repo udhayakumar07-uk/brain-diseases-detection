@@ -1,0 +1,59 @@
+<!-- mri_analyzer/templates/mri_analyzer/upload.html -->
+{% extends 'mri_analyzer/base.html' %}
+
+{% block title %}Upload MRI{% endblock %}
+
+{% block content %}
+<div class="upload-container">
+    <div class="upload-form">
+        <h2>Upload MRI Image</h2>
+        <form id="mri-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="file-input">
+                <input type="file" name="mri_image" id="mri-image" accept="image/*" required>
+                <label for="mri-image" class="file-label">
+                    <i class="fas fa-upload"></i>
+                    <span>Choose a file</span>
+                </label>
+            </div>
+            <button type="submit" id="scan-btn" disabled>
+                <i class="fas fa-brain"></i> Scan MRI
+            </button>
+        </form>
+    </div>
+
+    <div class="results-container" style="display: none;">
+        <div class="scanning-indicator">
+            <div class="scanning-animation"></div>
+            <p>Analyzing MRI scan...</p>
+        </div>
+        
+        <div class="image-comparison">
+            <div class="original-image">
+                <h3>Original MRI</h3>
+                <img id="original-mri" src="" alt="Original MRI">
+            </div>
+            <div class="analyzed-image">
+                <h3>Analyzed MRI</h3>
+                <img id="analyzed-mri" src="" alt="Analyzed MRI">
+            </div>
+        </div>
+        
+        <div class="prediction-results">
+            <h3>Analysis Results</h3>
+            <div class="result-item">
+                <label>Detected Condition:</label>
+                <span id="prediction-text" class="result-value"></span>
+            </div>
+            <div class="result-item">
+                <label>Disease Type:</label>
+                <span id="disease-type-text" class="result-value"></span>
+            </div>
+            <div class="result-item">
+                <label>Confidence:</label>
+                <span id="confidence-text" class="result-value"></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
